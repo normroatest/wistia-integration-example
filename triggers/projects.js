@@ -1,11 +1,12 @@
-const sample = require('../samples/sample_repo_list');
+const sample = require('../samples/sample_projects_list');
 
-const triggerProjects = (z, bundle) => {
-  const responsePromise = z.request({
+const triggerProjects = async (z, bundle) => {
+
+  //updated with async/await
+  const res = await z.request({
     url: 'https://api.wistia.com/v1/projects.json'
   });
-  return responsePromise
-    .then(response =>response.json);
+  return res.json;
 };
 
 module.exports = {

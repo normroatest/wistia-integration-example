@@ -4,8 +4,11 @@ const mediaTrigger = require('./triggers/media');
 const { authentication, addApiKeyToHeader } = require('./authentication');
 
 const handleHTTPError = (response, z) => {
-  if (response.status >= 400) {
-    throw new Error(`Unexpected status code ${response.status}`);
+  // if (response.status >= 400) {
+  //   throw new Error(`Unexpected status code ${response.status}`);
+  // }
+  if (response?.error) {
+    throw new Error(`Error: ${response.error}`)
   }
   return response;
 };

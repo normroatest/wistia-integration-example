@@ -1,15 +1,16 @@
-const sample = require('../samples/sample_issue');
+const sample = require('../samples/sample_project');
 
-const createProject = (z, bundle) => {
-  const responsePromise = z.request({
+const createProject = async (z, bundle) => {
+
+  const response = await z.request({
     method: 'POST',
     url: `https://api.wistia.com/v1/projects.json`,
     params: {
       name: bundle.inputData.name
     },
   });
-  return responsePromise
-    .then(response => response.json);
+
+  return response.json;
 };
 
 module.exports = {

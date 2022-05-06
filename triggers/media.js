@@ -1,19 +1,20 @@
-const sample = require('../samples/sample_issue');
+const sample = require('../samples/sample_media_list');
 
-const triggerMedia = (z, bundle) => {
+const triggerMedia = async (z, bundle) => {
 
   const params = {}
   if (bundle.inputData.project_id) {
     params.project_id = bundle.inputData.project_id;
   }
 
-  const responsePromise = z.request({
+  // updated with async
+  const response = await z.request({
     method: 'GET',
     url: `https://api.wistia.com/v1/medias.json`,
     params: params
   });
-  return responsePromise
-    .then(response => response.json);
+
+  return response.json;
 };
 
 module.exports = {

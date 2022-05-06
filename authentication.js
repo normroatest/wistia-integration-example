@@ -11,7 +11,7 @@ const authentication = {
       key: 'api_key',
       type: 'string',
       required: true,
-      helpText: 'Found on your account > settings > API access > Password',
+      helpText: 'Found on https://your_account_name.wistia.com/account/api',
     }
   ],
 };
